@@ -4,7 +4,6 @@
 require "bundler/setup"
 require "dotenv/load"
 require "pry"
-require "awesome_print"
 require "lebre"
 
 Pry.start

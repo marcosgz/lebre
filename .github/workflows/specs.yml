@@ -10,15 +10,6 @@ jobs:
   test:
     runs-on: ubuntu-latest
     services:
-      redis:
-        image: redis
-        options: >-
-          --health-cmd "redis-cli ping"
-          --health-interval 10s
-          --health-timeout 5s
-          --health-retries 5
-        ports:
-          - 6379:6379
       rabbitmq:
         image: rabbitmq:3-management
         options: >-
@@ -41,5 +32,4 @@ jobs:
     - name: Run tests
       run: bundle exec rspec
       env:
-        REDIS_URL: redis://localhost:6379
         RABBITMQ_URL: amqp://localhost:5672
